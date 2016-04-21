@@ -3,7 +3,7 @@
 The following API's are available.
 
 ```
-https://api.parliament.nsw.gov.au/api/hansard/search/year/{year}
+https://api.parliament.nsw.gov.au/api/hansard/search/year
 https://api.parliament.nsw.gov.au/api/hansard/search/bydate
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment/html
