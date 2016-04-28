@@ -1,6 +1,6 @@
 # Parliamentary Services Public API - New South Wales #
 
-The following API's are available.
+The following API's allow the user to consume Hansard documents and metadata.
 
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/year
@@ -8,9 +8,11 @@ https://api.parliament.nsw.gov.au/api/hansard/search/bydate
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment/html
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf/historic
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/searchablepdf
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontents
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontentsbydate
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/bySpeaker
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/byBill
 https://api.parliament.nsw.gov.au/api/sittingdate
 https://api.parliament.nsw.gov.au/api/sittingdatetype
 ```
@@ -67,61 +69,95 @@ https://api.parliament.nsw.gov.au/api/hansard/search/year/{year}
 ```
 ### Get Hansard By Date
 This function allows a user to get detailed hansard by date
+
 *METHOD*: GET
+
 *PARAMETERS*: date (date in UTC format) e.g. 2016-04-21
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/bydate?date={date}
 ```
 ### Get Hansard By Document Id
 This function allows a user to get a specific Hansard fragment raw XML file
+
 *METHOD*: GET
+
 *PARAMETERS*: documentId (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment/{documentId}
 ```
 ### Get Hansard HTML By Document Id
 This function allows a user to get a specific Hansard fragment JSON Payload
+
 *METHOD*: POST
+
 *PARAMETERS*: documentId (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/fragment/html/{documentId}
 ```
 ### Get Hansard PDF By Document Id
 This function allows a user to get a specific Hansard Daily PDF (post-1991)
+
 *METHOD*: GET
+
 *PARAMETERS*: documentId (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf/{documentId}
 ```
 ### Get Hansard PDF By Document Id
 This function allows a user to get a specific Hansard Daily PDF File (pre-1991)
+
 *METHOD*: GET
+
 *PARAMETERS*: documentId (string)
 ```
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf/historic/{documentId}
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/searchablepdf/{documentId}
 ```
 ### Get Hansard Table of Contents XML By Document Id
 This function allows a user to get a specific Hansard Table of Contents raw XML File
+
 *METHOD*: GET
+
 *PARAMETERS*: documentId (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontents/{documentId}
 ```
 ### Get Hansard Table of Contents JSON By Document Id
 This function allows a user to get a specific Hansard fragment XML File
+
 *METHOD*: POST
+
 *PARAMETERS*: documentId (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontentsbydate/{documentId}
 ```
+### Get Hansard By Speaker
+This function allows a user to get specific Hansard's by speaker
+
+*METHOD*: GET
+
+*PARAMETERS*: speakerName (string)
+```
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/byspeaker?speakerName=""
+```
+### Get Hansard By Bill
+This function allows a user to get specific Hansard's by Bill
+
+*METHOD*: GET
+
+*PARAMETERS*: billName (string)
+```
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/bybill?billName=""
+```
 ### Get Sitting Days
 This function allows a user to get a list of sitting days
+
 *METHOD*: GET
 ```
 https://api.parliament.nsw.gov.au/api/sittingdate
 ```
 ### Get Sitting Day Types
 This function allows a user to get a list of sitting day types
+
 *METHOD*: GET
 ```
 https://api.parliament.nsw.gov.au/api/sittingdatetype
