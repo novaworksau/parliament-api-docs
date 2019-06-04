@@ -135,9 +135,23 @@ This function allows a user to get specific Hansard's by speaker
 
 *METHOD*: GET
 
-*PARAMETERS*: speakerName (string)
+*PARAMETERS*: speakerName (string), parliamentSessionId (integer), startDate (string), endDate (string), houseCode (string), memberId (integer), rowLimit (integer)
+
+* speakerName can be either a last name or a name in the format "LastName, Title, Preferred or FirstName". E.g. "Doe", "Doe, Mr, John" or "Doe, Mr, Johnny". If providing only a last name you can provide a wildcard "\*" at the end of the name to match more than one name. E.g. providing "Smit\*" will match "Smit", "Smith", "Smithy" and so on.
+* parliamentSessionId is the database Id of a parliament session.
+* startDate/endDate must be in the format yyyy/mm/dd. Search is inclusive.
+* houseCode is either "LH" or "UH".
+* memberId is the database Id of a Member.
+* rowLimit is used to limit the number of records returned.
+
+All parameters are optional subject to the following restriction:
+* You must provide *either* a parliamentSessionId *or* a startDate and endDate *or* a memberId.
+
+**The most straightforward query provides only a start and end date and a speaker name. For example:**
+* `https://api.parliament.nsw.gov.au/api/hansard/search/byspeaker?startDate=2019/01/01&endDate=2019/06/01&speakerName=Smith, Mr, John`
+
 ```
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/byspeaker?speakerName=""
+https://api.parliament.nsw.gov.au/api/hansard/search/byspeaker?
 ```
 ### Get Hansard By Bill
 This function allows a user to get specific Hansard's by Bill
