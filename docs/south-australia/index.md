@@ -1,5 +1,10 @@
 # Parliamentary Services Public API - South Australia #
 
+<div style="font-size:1.2.rem;color:red">
+The following APIs have been retired and are not being maintained. A new set of APIs will be made available in the future. Please check back for updates.
+</div>
+
+
 The following API's are available.
 
 ```
