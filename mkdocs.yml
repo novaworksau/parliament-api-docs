@@ -1,5 +1,5 @@
 site_name: Parliamentary Services Public API Documentation
-pages:
+nav:
 - Home: docs/index.md
 - Parliament API:
   - 'South Australia': 'docs/south-australia/index.md'
