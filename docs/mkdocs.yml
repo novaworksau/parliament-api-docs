@@ -1,7 +1,0 @@
-site_name: Parliamentary Services Public API Documentation
-nav:
-- Home: 'index.md'
-- Parliament API:
-  - 'South Australia': 'south-australia/index.md'
-  - 'New South Wales': 'new-south-wales/index.md'
-theme: readthedocs
