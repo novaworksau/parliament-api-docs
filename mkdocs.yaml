@@ -4,4 +4,6 @@ pages:
 - Parliament API:
   - 'South Australia': 'docs/south-australia/index.md'
   - 'New South Wales': 'docs/new-south-wales/index.md'
-theme: readthedocs
+theme:
+  name: readthedocs
+  highlightjs: true
