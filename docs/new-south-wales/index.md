@@ -11,8 +11,8 @@ https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/searchablepdf
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontents
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/tableofcontentsbydate
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/bySpeaker
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/byBill
+https://api.parliament.nsw.gov.au/api/hansard/search/bySpeaker
+https://api.parliament.nsw.gov.au/api/hansard/search/byBill
 https://api.parliament.nsw.gov.au/api/sittingdate
 https://api.parliament.nsw.gov.au/api/sittingdatetype
 ```
@@ -160,7 +160,7 @@ This function allows a user to get specific Hansard's by Bill
 
 *PARAMETERS*: billName (string)
 ```
-https://api.parliament.nsw.gov.au/api/hansard/search/daily/bybill?billName=""
+https://api.parliament.nsw.gov.au/api/hansard/search/bybill?billName=""
 ```
 ### Get Sitting Days
 This function allows a user to get a list of sitting days
