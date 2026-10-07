@@ -72,10 +72,11 @@ This function allows a user to get detailed hansard by date
 
 *METHOD*: GET
 
-*PARAMETERS*: date (date in UTC format) e.g. 2016-04-21
+*PARAMETERS*: date (date in UTC format) e.g. 2016-04-21, houseCode (string, optional) "LH" (Legislative Assembly) or "UH" (Legislative Council)
 ```
-https://api.parliament.nsw.gov.au/api/hansard/search/bydate?date={date}
+https://api.parliament.nsw.gov.au/api/hansard/search/bydate?date={date}&houseCode={houseCode}
 ```
+Each sitting day in the response includes a `PdfDocumentId`, which can be passed to the Daily PDF endpoint below, and a `DocumentId` for each fragment, which can be passed to the fragment endpoints.
 ### Get Hansard By Document Id
 This function allows a user to get a specific Hansard fragment raw XML file
 
@@ -100,6 +101,9 @@ This function allows a user to get a specific Hansard Daily PDF (post-1991)
 *METHOD*: GET
 
 *PARAMETERS*: documentId (string)
+
+* documentId is the PDF document Id of a sitting day: `PdfDocumentId` from `bydate` or `PdfDocId` from `year`.
+* The PDF covers the whole sitting day for that house. PDFs are not available for individual fragments, and passing a fragment document Id returns 400 Bad Request.
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf/{documentId}
 ```
@@ -161,6 +165,20 @@ This function allows a user to get specific Hansard's by Bill
 *PARAMETERS*: billName (string)
 ```
 https://api.parliament.nsw.gov.au/api/hansard/search/bybill?billName=""
+```
+### Get the PDF for a Fragment
+The `bybill` and `byspeaker` responses and the fragment XML do not include a PDF document Id. To download the PDF containing a fragment:
+
+1. Take the `SittingDate` and house from the result and call `bydate` (Legislative Assembly = "LH", Legislative Council = "UH"). The response includes a `PdfDocumentId`. If the result has no house (e.g. `byspeaker`), call `bydate` without `houseCode` and use the sitting day whose `Details` contain the fragment's document Id.
+2. Pass the `PdfDocumentId` to the Daily PDF endpoint.
+
+For example, for a Legislative Council fragment on 19 May 2022:
+```
+https://api.parliament.nsw.gov.au/api/hansard/search/bydate?date=2022-05-19&houseCode=UH
+```
+returns `"PdfDocumentId":"HANSARD-1820781676-89288"`, and the PDF for that day can then be downloaded from:
+```
+https://api.parliament.nsw.gov.au/api/hansard/search/daily/pdf/HANSARD-1820781676-89288
 ```
 ### Get Sitting Days
 This function allows a user to get a list of sitting days
